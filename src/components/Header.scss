@@ -1,0 +1,43 @@
+header {
+    margin: 25px 0;
+  
+    img {
+      width: 200px;
+      height: 55px;
+      float: left;
+    }
+  
+    h3 {
+      float: right;
+    }
+  }
+  
+  @media only screen and (max-width: 397px) {
+    header {
+      margin: 25px 0;
+      img {
+        float: none;
+        display: block;
+        margin: 0 auto;
+      }
+      h3 {
+        float: none;
+        text-align: center;
+        margin: 10px 0;
+      }
+    }
+  }
+  
+  @media only screen and (min-width: 398px) {
+    header {
+      margin: 25px 0;
+  
+      h3 {
+        margin: 5px 0;
+      }
+    }
+  }
+  
+  @media only screen and (min-width: 772px) {
+  }
+  

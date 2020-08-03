@@ -18,11 +18,32 @@ module.exports = {
         use: ["babel-loader"]
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"]
-      }
+        test: /\.(svg|png|jpe?g|gif)$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'assets/images',
+          },
+        },
+        
+      },
+      {
+        test: /\.(css|scss|sass)$/,
+        exclude: /\.module\.(css|scss|sass)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+            },
+          },
+          'sass-loader',
+        ],
+      },
     ]
   },
+  
   resolve: {
     extensions: ['.js', '.jsx'],
   },
