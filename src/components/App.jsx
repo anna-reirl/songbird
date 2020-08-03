@@ -1,13 +1,14 @@
 import React from 'react';
-import Navbar from './Nav/Navbar';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Header from './Header';
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      App
+    <div>
+      <Header />
     </div>
   );
 }
 
 export default App;
+
