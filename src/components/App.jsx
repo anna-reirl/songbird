@@ -1,6 +1,7 @@
 import React, { useReducer } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header';
+import GameStage from './GameStage';
 import birdsData from '../data/birds';
 import './App.scss';
 
@@ -68,14 +69,27 @@ function reducer(state, action) {
   }
 }
 
-const App = () =>{
-  const [state, dispatch] = useReducer(reducer, initialGameState, init)
-  return (
-    <div>
-      <Header score={state.score} onClick={() => dispatch({ type: 'PLAY' })} />
-    </div>
-  );
+const App = () => {
+  const [state, dispatch] = useReducer(reducer, initialGameState, init);
+  function renderQuiz() {
+    return (
+      <>
+        
+      </>
+    );
+  }
+
+function renderEnd() {
+  return <EndGame score={state.score} reset={dispatch} />;
 }
+return (
+  <div className="container">
+    <Header score={state.score} onClick={() => dispatch({ type: 'PLAY' })} />
+    <GameStage stages={state.quizNames} activeStage={state.stage} />
+    {state.isFinished ? renderEnd() : renderQuiz()}
+  </div>
+);
+};
 
 export default App;
 

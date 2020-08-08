@@ -1,0 +1,130 @@
+nav {
+    margin: 25px 0;
+  
+    ul {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+  
+      li {
+        display: block;
+        list-style-type: none;
+        background-color: #008966;
+        border-color: #007c5d;
+        padding: 15px 0;
+        width: inherit;
+        text-align: center;
+      }
+      li.passed {
+        background-color: #00523d;
+      }
+      li.active {
+        background-color: #00a078;
+      }
+    }
+  }
+  
+@media only screen and (max-width: 397px) {
+    nav {
+      margin: 25px 0;
+  
+      ul {
+        display: inline-table;
+        width: 90%;
+        margin: 0 5%;
+  
+        li {
+          display: inline-block;
+          width: 50%;
+        }
+        li:first-child {
+          border-top-left-radius: 15px;
+        }
+        li:nth-child(2) {
+          border-top-right-radius: 15px;
+        }
+        li:nth-child(3) {
+          border-radius: 0;
+        }
+        li:nth-child(4) {
+          border-radius: 0;
+        }
+        li:nth-child(5) {
+          border-bottom-left-radius: 15px;
+        }
+        li:last-child {
+          border-bottom-right-radius: 15px;
+        }
+      }
+    }
+  }
+  
+@media only screen and (min-width: 398px) {
+    nav {
+      margin: 25px 0;
+  
+      ul {
+        display: inline-table;
+        width: 100%;
+        // margin: 0 5%;
+  
+        li {
+          display: inline-block;
+          width: 33%;
+        }
+  
+        li:first-child {
+          border-top-left-radius: 15px;
+        }
+        li:nth-child(2) {
+          border-radius: 0;
+        }
+        li:nth-child(3) {
+          border-top-right-radius: 15px;
+          width: 34%;
+        }
+        li:nth-child(4) {
+          border-bottom-left-radius: 15px;
+        }
+        li:nth-child(5) {
+          border-radius: 0;
+        }
+        li:last-child {
+          border-bottom-right-radius: 15px;
+          width: 34%;
+        }
+      }
+    }
+  }
+  
+@media only screen and (min-width: 772px) {
+    nav {
+      margin: 25px 0;
+      ul {
+        width: 100%;
+        display: flex;
+        li:first-child {
+          border-top-left-radius: 15px;
+          border-bottom-left-radius: 15px;
+        }
+        li:nth-child(2) {
+          border-radius: 0;
+        }
+        li:nth-child(3) {
+          border-radius: 0;
+        }
+        li:nth-child(4) {
+          border-radius: 0;
+        }
+        li:nth-child(5) {
+          border-radius: 0;
+        }
+  
+        li:last-child {
+          border-top-right-radius: 15px;
+          border-bottom-right-radius: 15px;
+        }
+      }
+    }
+  }
+  
