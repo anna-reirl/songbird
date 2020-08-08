@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Header';
 import birdsData from '../data/birds';
 import './App.scss';
 
 
-function makeQuestions(arrayIndex) {
+function makeQuestion(arrayIndex) {
   if (arrayIndex > birdsData[0].birds.length - 1) {
     return null;
   }
@@ -39,17 +39,40 @@ const initialGameState = {
   price: 5,
   isStageFinished: false,
   question: makeQuestion(0),
-  answers: makeAnswers(0),
+  answers: makeAnswer(0),
   selectedBird: null,
   isFinished: false,
 };
 
+function init(initialState) {
+  return {
+    ...initialState,
+  };
+}
 
+function reducer(state, action) {
+  switch (action.type) {
+    case 'RESET':
+    return init(initialGameState);
+    case 'NEXT_LEVEL':
+      return {
+        ...state,
+        price: 5,
+        stage: state.stage + 1,
+        isStageFinished: false,
+        isFinished: state.stage + 1 > 5,
+        question: makeQuestion(state.stage + 1),
+        answers: makeAnswers(state.stage + 1),
+        selectedBird: null,
+      };
+  }
+}
 
-function App() {
+const App = () =>{
+  const [state, dispatch] = useReducer(reducer, initialGameState, init)
   return (
     <div>
-      <Header />
+      <Header score={state.score} onClick={() => dispatch({ type: 'PLAY' })} />
     </div>
   );
 }
